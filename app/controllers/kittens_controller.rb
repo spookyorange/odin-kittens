@@ -16,8 +16,9 @@ class KittensController < ApplicationController
     @kitten = Kitten.new(kitten_params)
 
     if @kitten.save
-      redirect_to @kitten
+      redirect_to @kitten, notice: "kitten created successfully"
     else
+      flash.now[:notice] = "How can you miss that?"
       render :new
     end
 
@@ -31,8 +32,9 @@ class KittensController < ApplicationController
     @kitten = Kitten.find(params[:id])
 
     if @kitten.update(kitten_params)
-      redirect_to @kitten
+      redirect_to @kitten, notice: "kitten updated successfully"
     else
+      flash.now[:notice] = "Are you even trying?"
       render :edit
     end
   end
@@ -41,7 +43,7 @@ class KittensController < ApplicationController
     @kitten = Kitten.find(params[:id])
     @kitten.destroy
 
-    redirect_to root_path
+    redirect_to root_path, notice: "kitten deleted"
   end
 
   private

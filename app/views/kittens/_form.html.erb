@@ -1,4 +1,6 @@
-<%= form_with model: @kitten do |f| %>
+<%= notice %>
+<br /><br /><br />
+<%= form_with model: kitten do |f| %>
   <%= f.label :name, "Name of the kitten:" %>
   <%= f.text_field :name %><br /><br />
   <%= f.label :age, "Age of the kitten:" %>
