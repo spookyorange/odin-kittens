@@ -1,12 +1,27 @@
 <%= notice %>
 <br /><br /><br />
 <%= form_with model: kitten do |f| %>
+  <% kitten.errors.full_messages_for(:name).each do |message| %>
+    <p><%= message %></p>
+  <% end %>
   <%= f.label :name, "Name of the kitten:" %>
   <%= f.text_field :name %><br /><br />
+
+  <% kitten.errors.full_messages_for(:age).each do |message| %>
+    <p><%= message %></p>
+  <% end %>
   <%= f.label :age, "Age of the kitten:" %>
   <%= f.number_field :age %><br /><br />
+
+  <% kitten.errors.full_messages_for(:softness).each do |message| %>
+    <p><%= message %></p>
+  <% end %>
   <%= f.label :softness, "How soft is the kitten:" %>
   <%= f.number_field :softness %><br /><br />
+  
+  <% kitten.errors.full_messages_for(:cuteness).each do |message| %>
+    <p><%= message %></p>
+  <% end %>
   <%= f.label :cuteness, "How cute is the kitten:" %>
   <%= f.number_field :cuteness %><br /><br />
 
