@@ -1,1 +1,15 @@
-<h1>asdas</h1>
+<h1>We have some Kittens here!</h1>
+
+<br /><br />
+<% @kittens.each do |kitten| %>
+  <h2>Name: <%= kitten.name %></h2>
+  <p>Age: <%= kitten.age %></p>
+  <p>Softness: <%= kitten.softness %></p>
+  <p>Cuteness: <%= kitten.cuteness %></p>
+  <h3><%= link_to "Go to kittens page", kitten %></h3>
+  <br />
+<% end %>
+
+<br />
+
+<%= link_to "Create A New Kitten", new_kitten_path %>
